@@ -400,10 +400,10 @@ mine.MouseButton1Down:connect(function()
         for i = 1, speeds do
             spawn(function()
                 local hb = game:GetService("RunService").Heartbeat
-tpwalking = true
-本地chr =游戏。玩家.本地玩家.角色
-local hum = chr和chr:findfirtschildwhitisa("人形")
-而tpwalking和chr和wait()和chr和hum和hum。家长do
+                tpwalking = true
+                local chr = game.Players.LocalPlayer.Character
+                local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+                while tpwalking and chr and wait() and chr and hum and hum.Parent do
                     if hum.MoveDirection.Magnitude ~= 0 then
                         chr:TranslateBy(hum.MoveDirection)
                     end
@@ -414,27 +414,28 @@ local hum = chr和chr:findfirtschildwhitisa("人形")
 end)
 
 closebutton.MouseButton1Click:connect(function()
-main:销毁()
-结束)
+    main:Destroy()
+end)
 
-结束)
-向上。可见=假
-下去。可见=假
-另外。可见=假
-我的。可见=假
-主要的背景透明度= 1
-迷你。可见=假
-迷你2。可见=真
-迷你2。Position = UDim2.new(0，44，-1，57)
-结束)
+mini.MouseButton1Click:connect(function()
+    up.Visible = false
+    down.Visible = false
+    plus.Visible = false
+    mine.Visible = false
+    main.BackgroundTransparency = 1
+    mini.Visible = false
+    mini2.Visible = true
+    mini2.Position = UDim2.new(0, 44, -1, 57)
+end)
 
-迷你2。鼠标按钮1点击:连接(函数()
-向上。可见=真
-下去。可见=真
-另外。可见=真
-我的。可见=真
-主要的背景透明度= 0
-迷你。可见=真
-迷你2。可见=假
-迷你2。Position = UDim2.new(0，44，-1，27)
-结束)#Mky-
+mini2.MouseButton1Click:connect(function()
+    up.Visible = true
+    down.Visible = true
+    plus.Visible = true
+    mine.Visible = true
+    main.BackgroundTransparency = 0
+    mini.Visible = true
+    mini2.Visible = false
+    mini2.Position = UDim2.new(0, 44, -1, 27)
+end)
+
